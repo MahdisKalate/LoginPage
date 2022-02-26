@@ -1,0 +1,25 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3 mt-3">
+    <label for="phonenumber" class="form-label">شماره موبایل</label>
+    <input
+      type="text"
+      id="phonenumber"
+      formControlName="phonenumber"
+      placeholder="شماره موبایل خود را وارد کنید"
+      class="form-control-sm"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">رمز ورود</label>
+    <input
+      type="text"
+      id="password"
+      formControlName="password"
+      placeholder="رمز ورود خود را وارد کنید"
+      class="form-control-sm"
+    />
+  </div>
+  <button [disabled]="!signupForm.valid" class="btn btn-info" type="submit">
+    ورود
+  </button>
+</form>
