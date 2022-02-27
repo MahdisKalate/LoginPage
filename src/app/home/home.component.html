@@ -1,1 +1,58 @@
-<p>home works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm">
+        <nav class="navbar navbar-expand-sm bg-info">
+          <div class="container-fluid">
+            <ul class="navbar-nav">
+              <li
+                routerLink="/"
+                class="nav-item"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+              >
+                <a class="nav-link">صفحه اصلی</a>
+              </li>
+              <li
+                class="nav-item"
+                routerLink="/second"
+                routerLinkActive="active"
+              >
+                <a class="nav-link">صفحه ی ورود</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <router-outlet></router-outlet>
+        <div class="mb-3 mt-3">
+          <label for="phonenumber" class="form-label">شماره موبایل</label>
+          <input
+            type="text"
+            id="phonenumber"
+            formControlName="phonenumber"
+            placeholder="شماره موبایل خود را وارد کنید"
+            class="form-control-sm"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">رمز ورود</label>
+          <input
+            type="text"
+            id="password"
+            formControlName="password"
+            placeholder="رمز ورود خود را وارد کنید"
+            class="form-control-sm"
+          />
+        </div>
+        <button
+          [disabled]="!signupForm.valid"
+          (click)="LogIn()"
+          class="btn btn-info"
+          type="submit"
+        >
+          ورود
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

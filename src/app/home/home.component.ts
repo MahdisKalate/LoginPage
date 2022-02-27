@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  signupForm: FormGroup;
+    submit= false;
 
-  ngOnInit(): void {
-  }
+    constructor(private formbuilder : FormBuilder , private router: Router) {
+    }
 
+    ngOnInit(){
+      this.signupForm = this.formbuilder.group({
+         
+        phonenumber: new FormControl ('', Validators.compose([Validators.pattern('[0][9]([0-4]|[9]){1}[0-9]{8}'),Validators.required,Validators.minLength(11)])),
+        password: new FormControl ('', Validators.compose([Validators.minLength(8),Validators.required]))
+            });
+         
+    }
+         
+    LogIn(){
+    console.log(this.signupForm);
+    localStorage.setItem("localstorage",JSON.stringify(this.signupForm?.value));
+    this.router.navigate(['/second']);
+    }
+    
 }
