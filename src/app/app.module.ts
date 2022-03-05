@@ -6,12 +6,15 @@ import { HomeComponent } from './home/home.component'
 import { SecondScreenComponent } from './second-screen/second-screen.component';
 import { Routes , RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   {path : '', redirectTo: '/first', pathMatch: 'full'},
   {path: 'first', component: HomeComponent },
   {path: 'second', component: SecondScreenComponent},
+  {path: 'profile/:phonenumber', component: ProfileComponent},
   {path: '**', component: PageNotFoundComponent}
+  
 ];
 
 
@@ -26,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     SecondScreenComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfileComponent
   ],
  
   providers: [SecondScreenComponent],

@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
     LogIn(){
     console.log(this.signupForm);
     localStorage.setItem("localstorage",JSON.stringify(this.signupForm?.value));
-    this.router.navigate(['/second']);
+    const value = this.signupForm.get('phonenumber')?.value
+    this.router.navigate(['/profile',value]);
     }
     
 }
