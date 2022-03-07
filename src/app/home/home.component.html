@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form [formGroup]="signupForm">
+      <form [formGroup]="signupForm" class="was-validated">
         <nav class="navbar navbar-expand-sm bg-info">
           <div class="container-fluid">
             <ul class="navbar-nav">
@@ -25,33 +25,41 @@
         </nav>
         <router-outlet></router-outlet>
         <div class="mb-3 mt-3">
-          <label for="phonenumber" class="form-label">شماره موبایل</label>
+          <label for="number" class="form-label mx-2">شماره موبایل</label>
           <input
             type="text"
             id="phonenumber"
+            name="number"
             formControlName="phonenumber"
             placeholder="شماره موبایل خود را وارد کنید"
-            class="form-control-sm"
+            class="form-control"
+            required
           />
+          <div class="invalid-feedback">لطفا این فیلد را پر کنید</div>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">رمز ورود</label>
+          <label for="pass" class="form-label mx-2">رمز ورود</label>
           <input
             type="text"
             id="password"
+            name="pass"
             formControlName="password"
             placeholder="رمز ورود خود را وارد کنید"
-            class="form-control-sm"
+            class="form-control"
+            required
           />
+          <div class="invalid-feedback">لطفا این فیلد را پر کنید</div>
         </div>
-        <button
-          [disabled]="!signupForm.valid"
-          (click)="LogIn()"
-          class="btn btn-info"
-          type="submit"
-        >
-          ورود
-        </button>
+        <div class="d-grid">
+          <button
+            [disabled]="!signupForm.valid"
+            (click)="LogIn()"
+            class="btn btn-info btn-block fw-bold"
+            type="submit"
+          >
+            ورود
+          </button>
+        </div>
       </form>
     </div>
   </div>

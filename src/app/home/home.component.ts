@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router , ActivatedRoute , ParamMap} from '@angular/router';
+import { Router , ActivatedRoute , ParamMap } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -15,11 +15,6 @@ export class HomeComponent implements OnInit {
 
     constructor(private formbuilder : FormBuilder , private router: Router , private route: ActivatedRoute) {
     }
-
-    phonenumber$ = this.route.paramMap
-     .pipe(
-        map((params: ParamMap) => params.get('phonenumber'))
-          );
 
     ngOnInit(){
       this.signupForm = this.formbuilder.group({
