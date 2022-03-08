@@ -1,1 +1,13 @@
-<p class="bg-info text-white">شماره موبایل:{{ number }}</p>
+<div class="d-flex flex-column" style="width: 410px">
+  <div class="p-2 bg-danger">Welcome {{ profile.login }}</div>
+  <div class="p-2 bg-dark text-light">{{ profile.html_url }}</div>
+  <div class="p-2 bg-danger">{{ profile.id }}</div>
+  <div class="p-2 bg-dark">
+    <img
+      [src]="profile.avatar_url"
+      class="rounded float-start"
+      width="100"
+      height="100"
+    />
+  </div>
+</div>

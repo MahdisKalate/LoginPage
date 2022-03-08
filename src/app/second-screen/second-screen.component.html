@@ -1,1 +1,5 @@
-<p *ngFor="let item of user">{{ item.login }}</p>
+<ul>
+  <li *ngFor="let item of user" (click)="showUrl(item.login)">
+    {{ item.login }}
+  </li>
+</ul>

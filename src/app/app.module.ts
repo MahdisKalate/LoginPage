@@ -11,10 +11,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 
 const appRoutes: Routes = [
-  {path : '', redirectTo: '/first', pathMatch: 'full'},
-  {path: 'first', component: HomeComponent },
-  {path: 'second', component: SecondScreenComponent},
-  {path: 'profile/:phonenumber', component: ProfileComponent , canActivate:[AuthGuard] },
+  {path : '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: HomeComponent },
+  {path: 'users', component: SecondScreenComponent},
+  {path: 'profile/:id', component: ProfileComponent , canActivate:[AuthGuard] },
   {path: '**', component: PageNotFoundComponent}
   
 ];

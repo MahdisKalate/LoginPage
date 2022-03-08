@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router, UrlSerializer, ParamMap } from '@angular/router';
+import { ActivatedRoute, Params, Router , UrlSerializer, ParamMap, Routes } from '@angular/router';
+import { MyServiceService } from './../shared/services/my-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,19 +8,24 @@ import { ActivatedRoute, Params, Router, UrlSerializer, ParamMap } from '@angula
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  number:any;
-  password:any;
+
+  profile:any;
+  id: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private router:Router
-    )
-    {
-      console.log(router.url);
-    }
+    private myservice:MyServiceService,
+    private route:ActivatedRoute
+    ){}
 
   ngOnInit(): void {
-    this.number = this.route.snapshot.paramMap.get('phonenumber');
-  }
+    this.id = this.route.snapshot.params['id'];
+    console.log(this.id);
+    
+     this.myservice.getOneApi(this.id)
+      .subscribe((info) => {
+         this.profile=info;
+         console.log(this.profile);
+      })
+    }
 
 }

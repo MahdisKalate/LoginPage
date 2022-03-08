@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyServiceService } from './../shared/services/my-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-second-screen',
@@ -7,15 +8,24 @@ import { MyServiceService } from './../shared/services/my-service.service';
   styleUrls: ['./second-screen.component.css']
 })
 export class SecondScreenComponent implements OnInit {
-  user:any[]
+  
+  user:any[] =[];
 
-  constructor(private myservice:MyServiceService){}
+  showUrl(login: any){
+    this.router.navigate(['/profile',login]);
+    console.log(login);
+    
+  }
+  constructor(private myservice:MyServiceService , private router:Router){}
 
   ngOnInit(){
-    this.myservice.getApi()
+    this.myservice.getAllApi()
       .subscribe((data:any) => {
         this.user=data;
+        console.log(this.user);
+        
       })
+    
   }
 
 }
