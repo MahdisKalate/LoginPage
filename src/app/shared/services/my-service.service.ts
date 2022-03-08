@@ -8,7 +8,10 @@ export class MyServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getApi(){
+  getAllApi(){
     return this.http.get("https://api.github.com/users")
+  }
+  getOneApi(id:any){
+    return this.http.get(`https://api.github.com/users/${id}`)
   }
 }
